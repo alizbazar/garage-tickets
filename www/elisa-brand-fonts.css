@@ -1,0 +1,208 @@
+/* Primary colors */
+/* Secondary colors */
+/* Greys */
+.elisa-verlag-xlight {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+.elisa-verlag-xlight-italic {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+.elisa-verlag-light {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.elisa-verlag-light-italic {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+.elisa-verlag-book {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.elisa-verlag-book-italic {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.elisa-verlag-bold {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.elisa-verlag-bold-italic {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.elisa-verlag-black {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+.elisa-verlag-black-italic {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+.site-common-brand-font-light {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+.site-common-brand-font-regular {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.site-common-brand-font-medium {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.site-common-brand-font-bold {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.site-common-sans-serif-font {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+.site-common-headline-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 80px;
+  color: #404041;
+  line-height: 1;
+}
+.site-common-headline-alternative-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 60px;
+  color: #404041;
+  line-height: 1;
+}
+.site-common-headline-alternative2-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 48px;
+  color: #404041;
+  line-height: 1;
+}
+.site-common-subheading-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 30px;
+  color: #404041;
+  line-height: 1.125;
+}
+.site-common-subheading2-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 24px;
+  color: #404041;
+}
+.site-common-product-listing-text {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: #404041;
+}
+.site-common-ingress-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #404041;
+}
+.site-common-body-text {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 13px;
+  color: #404041;
+  line-height: 18px;
+}
+.site-common-special-offer-text {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: #ff6400;
+}
+.site-common-emphasized-text {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: #404041;
+}
+.site-common-grey-text {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 13px;
+  color: #808081;
+}
+.site-common-faded-grey-text {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 13px;
+  color: #808081;
+}
+.site-common-light-grey-text {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 13px;
+  color: #b0b0b1;
+}
+.site-common-button-text-big {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 15px;
+}
+.site-common-button-text {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 15px;
+  color: #f5f5f5;
+}
+.site-common-button-text-small {
+  font-family: 'Verlag A', 'Verlag B', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  color: #f5f5f5;
+}
+.site-common-link a {
+  color: #0090f1;
+  text-decoration: none;
+}
+.site-common-link a:hover {
+  text-decoration: underline;
+}
+.site-common-link-text {
+  color: #0090f1;
+  text-decoration: none;
+}
+.site-common-link-text:hover {
+  text-decoration: underline;
+}
