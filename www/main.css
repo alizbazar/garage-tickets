@@ -1,3 +1,129 @@
 body {
-	
+	background: url('images/bg.jpg') no-repeat center 30px;
+    background-size: 100%;
+    background-color: black;
 }
+
+@media (max-width: 720px) {
+    body {
+        background-size: 720px auto;
+    }
+}
+
+@media (min-width: 966px) {
+    body {
+        background-size: 966px auto;
+    }
+}
+
+#content {
+    margin-top: 60px;
+}
+
+h1, h2, h3, h4, h5, h6, div, p {
+    color: white;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h1, h2 {
+    font-weight: 800;
+    margin: 0;
+}
+
+h2#datetime {
+    margin-top: 20px;
+}
+
+address.location {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.container {
+    text-align: center;
+    font-family: 'Verlag A', 'Verlag B', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.inviteForm {
+    margin-right: auto;
+    margin-left: auto;
+    display: inline-block;
+}
+
+p {
+    text-transform: none;
+    line-height: 1.1;
+    font-size: 26px;
+}
+
+p#congrats {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.inviteForm input {
+}
+
+.inviteForm .form-group {
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 270px;
+}
+
+.row {
+    margin-bottom: 30px;
+}
+
+#inviteFriends .form-group {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 220px;
+}
+
+.inviteForm input, .inviteForm button {
+    font-size: 16px;
+}
+
+#program h2 {
+    margin-bottom: 10px;
+}
+
+#program p {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+#welcome {
+
+}
+
+.host {
+    margin-bottom: 40px;
+}
+
+.sponsor {
+    margin-bottom: 15px;
+}
+
+#footer {
+    margin-bottom: 60px;
+}
+
+#footer p {
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+#footer p a {
+    font-weight: 800;
+    text-decoration: none;
+}
+

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Elisa Garage Chillax - the best pre-afterparty of Slush 2014" />
     <meta name="author" content="Andrew Shen" />
     <link rel="shortcut icon" href="img/favicon.png" />
@@ -26,19 +26,78 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-    <section id="intro" class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1>Elisa Garage Chillax</h1>
-                        <h2>Nov 18 @ 6-9 PM</h2>
-                        <p id="address"><address>Ratavartijankatu 5, Helsinki</address></p>
-                    </div>
-                </div>
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h1>Elisa<br />
+                    Garage<br />
+                    Chillax</h1>
+                <h2 id="datetime">Nov 18 @ 6-9 PM</h2>
+                <address class="location">Ratavartijankatu 5, Helsinki</address>
             </div>
         </div>
-    </section>
+        <div id="registerMe">
+            <div class="row inviteForm">
+                <p id="congrats">Congratulations, you are invited!</p>
+                <p>Please, register yourself:</p>
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <label for="myName" class="sr-only">Name</label>
+                        <input type="text" class="form-control" id="myName" placeholder="Your name?" />
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">@</div>
+                            <input class="form-control" type="email" placeholder="Your email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="myPhone" class="sr-only">Mobile</label>
+                        <input type="tel" class="form-control" id="myPhone" placeholder="Your mobile phone" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Register</button>
+                </form>
+            </div>
+        </div>
+        <div id="inviteFriends">
+            <div class="row inviteForm">
+                <p>You can also invite up to <strong>3</strong> of your friends:</p>
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">@</div>
+                            <input class="form-control" type="email" placeholder="Friend's email" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Invite</button>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="program">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2>Program:</h2>
+                <p>Free food & drinks, music, facial recognition, VR, Dev comps...</p>
+            </div>
+        </div>
+        <div class="row" id="providedBy">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="host"><a href="http://www.elisa.fi"><img src="images/elisaXslush.png" alt="Elisa X Slush" width="150" /></div>
+                <div class="sponsor"><a href="http://www.helsinkijs.fi"><img src="images/helsinkijs.png" alt="Helsinki JS" width="150" /></div>
+                <div class="sponsor"><a href="http://www.flowdock.com"><img src="images/flowdock.png" alt="Flowdock" width="200" /></div>
+                <div class="sponsor"><a href="http://www.appgyver.com"><img src="images/appgyver.png" alt="AppGyver" width="200" /></div>
+            </div>
+        </div>
+
+        <div class="row" id="footer">
+            <div class="col-sm-8 col-sm-offset-2">
+                <p>Official Slush satellite event</p>
+                <p><a href="mailto:foo@bar.com">Want to come? Let us know!</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
