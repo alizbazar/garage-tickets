@@ -42,6 +42,7 @@ h2#datetime {
 address.location {
     font-weight: 700;
     font-size: 20px;
+    margin-bottom: 0;
 }
 
 .container {
