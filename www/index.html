@@ -7,11 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Elisa Garage Chillax - the best pre-afterparty of Slush 2014" />
     <meta name="author" content="Andrew Shen" />
-    <link rel="shortcut icon" href="img/favicon.png" />
-
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <title>Elisa Garage Chillax @ Slush 2014</title>
+
+    <style>
+    html {
+        background-color: black;
+        color: white;
+    }
+    </style>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
@@ -40,6 +45,7 @@
             <div class="row inviteForm">
                 <p id="congrats">Congratulations, you are invited!</p>
                 <p>Please, register yourself:</p>
+                <div id="validationErrors" class="hidden"></div>
                 <form class="form-inline" role="form">
                     <div class="form-group">
                         <label for="myName" class="sr-only">Name</label>
@@ -59,14 +65,19 @@
                 </form>
             </div>
         </div>
-        <div id="inviteFriends">
+        <div id="justRegistered" class="hidden">
+            <div class="row">
+                <p id="congrats">Congratulations, you are registered!</p>
+            </div>
+        </div>
+        <div id="inviteFriends" class="hidden">
             <div class="row inviteForm">
-                <p>You can also invite up to <strong id="nbrOfInvites">3</strong> of your friends:</p>
+                <p>You can invite up to <strong id="nbrOfInvites">3</strong> of your friends that are also attending Slush:</p>
                 <form class="form-inline" role="form">
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">@</div>
-                            <input class="form-control" type="email" placeholder="Friend's email" />
+                            <input class="form-control" id="friendsEmail" type="email" placeholder="Friend's email" />
                         </div>
                     </div>
                     <button type="submit" class="btn btn-default">Invite</button>
@@ -81,17 +92,17 @@
         </div>
         <div class="row" id="providedBy">
             <div class="col-sm-8 col-sm-offset-2">
-                <div class="host"><a href="http://www.elisa.fi"><img src="images/elisaXslush.png" alt="Elisa X Slush" width="150" /></div>
-                <div class="sponsor"><a href="http://www.helsinkijs.fi"><img src="images/helsinkijs.png" alt="Helsinki JS" width="150" /></div>
-                <div class="sponsor"><a href="http://www.flowdock.com"><img src="images/flowdock.png" alt="Flowdock" width="200" /></div>
-                <div class="sponsor"><a href="http://www.appgyver.com"><img src="images/appgyver.png" alt="AppGyver" width="200" /></div>
+                <div class="host"><a href="http://www.elisa.fi"><img src="images/elisaXslush.png" alt="Elisa X Slush" width="150" /></a></div>
+                <div class="sponsor"><a href="http://www.helsinkijs.fi"><img src="images/helsinkijs.png" alt="Helsinki JS" width="150" /></a></div>
+                <div class="sponsor"><a href="http://www.flowdock.com"><img src="images/flowdock.png" alt="Flowdock" width="200" /></a></div>
+                <div class="sponsor"><a href="http://www.appgyver.com"><img src="images/appgyver.png" alt="AppGyver" width="200" /></a></div>
             </div>
         </div>
 
         <div class="row" id="footer">
             <div class="col-sm-8 col-sm-offset-2">
                 <p>Official Slush satellite event</p>
-                <p><a href="mailto:foo@bar.com">Want to come? Let us know!</a></p>
+                <p><a href="mailto:info@elisaxslush.com">Want to come? Let us know!</a></p>
             </div>
         </div>
     </div>

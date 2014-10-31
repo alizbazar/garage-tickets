@@ -1,5 +1,7 @@
 <?php
 
+require_once('common.php');
+
 $no = isset($_GET['no']) ? intval($_GET['no']) : 10;
 if ($no <= 0) {
     $no = 10;

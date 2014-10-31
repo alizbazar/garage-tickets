@@ -10,10 +10,38 @@ body {
     }
 }
 
+@media (min-width: 890px) {
+    .container {
+        zoom: 1.2; 
+        -moz-transform: scale(3);
+        -moz-transform-origin: 0 0;
+    }
+}
+
 @media (min-width: 966px) {
     body {
         background-size: 966px auto;
     }
+}
+
+#validationErrors {
+    x.border: 2px solid red;
+    padding: 5px 5px 0 5px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 3px;
+}
+
+#validationErrors p {
+    font-family: "Courier New";
+    font-size: 18px;
+    color: red;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.has-error {
+    border-width: 3px;
 }
 
 #content {

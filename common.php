@@ -46,12 +46,17 @@ function respond($data) {
   die;
 }
 
+function logRequest($route, $content) {
+  $content = str_replace("\n", "  ", $content);
+  file_put_contents("log.txt", $route . "\t" . date('Y-m-d G:i:s') . "\t" . $content . "\n", FILE_APPEND);
+}
+
 
 
 if (strpos($_SERVER['HTTP_HOST'], 'local') === FALSE) {
-  require_once ('/home/vntradeo/alizweb/includes/databaseConnect.php');
+  require_once ('/home/vntradeo/alizweb/includes/databaseConnectLive.php');
 } else {
-  require_once ('../includes/databaseConnect.php');
+  require_once ('../includes/databaseConnectLocal.php');
 }
 //mysqli_select_db('vntradeo_vntrade');
 

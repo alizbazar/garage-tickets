@@ -1,7 +1,7 @@
 <?php
 
 function getInvite($token) {
-    return good_query_assoc("SELECT name, email, freeInvites, registered FROM `garage_invites` WHERE token = '$token'");
+    return good_query_assoc("SELECT name, email, freeInvites, phone, registered FROM `garage_invites` WHERE token = '$token'");
 }
 
 function validateEmail($email) {
