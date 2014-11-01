@@ -42,7 +42,7 @@ Team behind Elisa X Slush
 
 ";
 
-        $message = str_replace("\n", "\r\n", $message);
+//        $message = str_replace("\n", "\r\n", $message);
 
         // TODO: Sender address
         $header = "From: Elisa X Slush <info@elisaxslush.com>\r\n";
