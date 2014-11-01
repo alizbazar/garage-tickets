@@ -36,7 +36,7 @@ Team behind Elisa X Slush
 
 PS. Should you have any questions, shoot us an email at info@elisaxslush.com .";
 
-$message = str_replace("\n", "\r\n", $message);
+//$message = str_replace("\n", "\r\n", $message);
 
 $header = "From: Elisa X Slush <info@elisaxslush.com>\r\n";
 

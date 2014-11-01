@@ -11,6 +11,7 @@ body {
 }
 
 @media (min-width: 890px) {
+    /** TODO: increase font size instead of zooming **/
     .container {
         zoom: 1.2; 
         -moz-transform: scale(3);
@@ -21,6 +22,19 @@ body {
 @media (min-width: 966px) {
     body {
         background-size: 966px auto;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1179px) {
+    .container {
+        width: 814px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 985px;
     }
 }
 
