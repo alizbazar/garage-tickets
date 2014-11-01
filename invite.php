@@ -22,18 +22,19 @@ if ($invite && $invite['freeInvites'] > 0) {
         good_query("UPDATE garage_invites SET freeInvites = (freeInvites - 1) WHERE token = '$token'");
 
         $name = $invite['name'];
+        $link = 'http://elisaxslush.com/garage/?t=' . $newToken;
 
         $message .= "Hi!\n\n" . $name . " just registered for Elisa Garage Chillax and invites you to join the fun, too.  
 
-Elisa Garage Chillax takes place on the first day of Slush, November 18th at 6-9pm on Ratavartijankatu 5, Helsinki.
+Elisa Garage Chillax takes place on the first day of Slush, November 18th at 6-9pm, in our garage on Ratavartijankatu 5, Helsinki.
 
-Yes, we will be hosting you in our garage. And this time you won't see any businessmen in black suits hurrying to their cars. You'll see disco balls, soft lights, and people enjoying this slushy November night.
+This time you won't see any businessmen in black suits hurrying to their cars. You'll see disco balls, soft lights, and people enjoying this slushy November night.
 
-Sign up with your personal link right now. Our garage space is huge but has a guest limit. 
+Sign up with your personal link right now: " . $link . " 
 
-The program includes free food & drinks, dev comps, playing with facial recognition, and relaxing in big couches. 
+Our garage space is huge but limited, so act fast! 
 
-For the Slush participants, the night will continue at the official Slush after party in Messukeskus which is conveniently located within 600 meters from our headquarters.
+The program includes free food & drinks, dev comps, playing with facial recognition, and relaxing in big couches. For the Slush participants, the night will continue at the official Slush after party in Messukeskus which is conveniently located within 600 meters from our headquarters.
 
 We look forward to having you here,
 
