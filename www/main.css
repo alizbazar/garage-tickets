@@ -81,6 +81,10 @@ h2#datetime {
     margin-top: 20px;
 }
 
+a {
+    color: #4a9adb;
+}
+
 address.location {
     font-weight: 700;
     font-size: 20px;
@@ -156,17 +160,26 @@ p#congrats {
     margin-bottom: 15px;
 }
 
-#footer {
+#letUsKnow {
     margin-bottom: 60px;
 }
 
-#footer p {
+#letUsKnow p {
     text-transform: uppercase;
     line-height: 0.95;
 }
 
-#footer p a {
+#letUsKnow p a {
     font-weight: 800;
     text-decoration: none;
+}
+
+#letUsKnow.noInvite {
+    background-color: rgba(0,0,0,0.6);
+    padding-top: 10px;
+}
+
+#letUsKnow.noInvite p {
+    font-size: 30px;
 }
 

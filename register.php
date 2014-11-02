@@ -21,27 +21,40 @@ if ($tokenValid) {
     $response = array('status' => 'error', 'message' => 'No invitation found', 'code' => 'NOTFOUND');
 }
 
-$message = "Hi " . $name . "!
+$spaceI = strpos($name, ' ', 1);
+if ($spaceI !== FALSE) {
+	$firstName = substr($name, 0, $spaceI);
+} else {
+	$firstName = $name;
+}
 
-Thanks for registering for Elisa Garage Chillax that takes place on November 18 at 6-9pm.
+$message = "Hi " . $firstName . "!
 
-The venue is conveniently located within a 5-minute walk from Messukeskus, at Ratavartijankatu 5.  
+Thanks for registering for Elisa Garage Chillax that takes place on Tuesday, November 18 from 6-9pm.
 
-The program starts and food will be ready at 6pm so arrive early. 
+The venue is conveniently located within a 5-minute walk from the Slush venue, at Ratavartijankatu 5.  
+
+The program starts and food will be ready at 6pm so please arrive in time. 
 
 We look forward to seeing you soon!
 
 Hilla & Albert
 Team behind Elisa X Slush 
 
-PS. Should you have any questions, shoot us an email at info@elisaxslush.com .";
+PS. Should you have any questions, shoot us an email at info@elisaxslush.com .
+
+
+";
 
 //$message = str_replace("\n", "\r\n", $message);
 
 $header = "From: Elisa X Slush <info@elisaxslush.com>\r\n";
+$header .= "Content-Type: text/plain;charset=utf-8\r\n";
 
-mail($email, 'Welcome to Elisa Garage Chillax', $message, $header);
+mail($email, 'Welcome to Elisa Garage Chillax on 18.11.', $message, $header);
 
 respond(json_encode($response));
+
+
 
 ?>

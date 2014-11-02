@@ -36,7 +36,7 @@ function cors() {
 
 function respond($data) {
   global $_GET;
-  header('Content-type: application/json');
+  header('Content-type: application/json; charset=utf-8');
   if (isset($_GET['callback']) && strpos($_GET['callback'], '(') === FALSE) {
       echo($_GET['callback'] . '(' . $data . ');');
   } else {
@@ -58,6 +58,9 @@ if (strpos($_SERVER['HTTP_HOST'], 'local') === FALSE) {
 } else {
   require_once ('../includes/databaseConnectLocal.php');
 }
+
+$db->set_charset('utf8');
+
 //mysqli_select_db('vntradeo_vntrade');
 
 

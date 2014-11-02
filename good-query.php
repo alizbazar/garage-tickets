@@ -28,8 +28,6 @@ function good_query($string, $debug=0)
     if ($result == false)
     {
         error_log("SQL error: ".$db->error."\n\nOriginal query: $string\n");
-	// Remove following line from production servers 
-        die("SQL error: ".$db->error."\b<br>\n<br>Original query: $string \n<br>\n<br>");
     }
     return $result;
 }

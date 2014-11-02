@@ -10,49 +10,57 @@ logRequest('invite', 'token: ' . $token . '; email: ' . $email);
 
 $invite = getInvite($token);
 
-// TODO: make sure only 
-
 if ($invite && $invite['freeInvites'] > 0) {
     $newToken = generateToken();
     $sql = "INSERT INTO garage_invites SET token = '$newToken', email = '$email', referredBy = '$token'";
     if (!good_query($sql)) {
-        // TODO: person might have already been invited -> inform that X is coming & inform X if he registers 
-        respond(json_encode(array('status' => 'error', 'message' => 'Invitation didn\'t go through')));
+        $error = $db->error;
+        // Check if error is only due to duplicate email (person already invited)
+        if (stripos($error, "Duplicate") !== FALSE && stripos($error, "'email'") !== FALSE) {
+            $newToken = good_query_value("SELECT token FROM garage_invites WHERE email = '$email'");
+            if (empty($newToken)) {
+                respond(json_encode(array('status' => 'error', 'message' => "Invitation wasn't found")));
+            }
+        } else {
+            respond(json_encode(array('status' => 'error', 'message' => 'Invitation didn\'t go through. Please try again.')));
+        }
     } else {
         good_query("UPDATE garage_invites SET freeInvites = (freeInvites - 1) WHERE token = '$token'");
+    }
 
         $name = $invite['name'];
         $link = 'http://elisaxslush.com/garage/?t=' . $newToken;
 
         $message .= "Hi!\n\n" . $name . " just registered for Elisa Garage Chillax and invites you to join the fun, too.  
 
-Elisa Garage Chillax takes place on the first day of Slush, November 18th at 6-9pm, in our garage on Ratavartijankatu 5, Helsinki.
+**Elisa Garage Chillax takes place on the first day of Slush, November 18th at 6-9pm**, in our garage (Ratavartijankatu 5, Helsinki), just a 5-minute walk from the Slush venue.
 
-This time you won't see any businessmen in black suits hurrying to their cars. You'll see disco balls, soft lights, and people enjoying this slushy November night.
+Our garage space is huge but has a guest limit! So sign up with your personal link right now: " . $link . " .
 
-Sign up with your personal link right now: " . $link . " 
+The program includes free food & drinks, music, dev comps, playing with facial recognition, and relaxing in big couches. 
 
-Our garage space is huge but limited, so act fast! 
-
-The program includes free food & drinks, dev comps, playing with facial recognition, and relaxing in big couches. For the Slush participants, the night will continue at the official Slush after party in Messukeskus which is conveniently located within 600 meters from our headquarters.
+For the Slush participants, the night will continue at the official Slush after party in Messukeskus.
 
 We look forward to having you here,
 
 Hilla & Albert
 Team behind Elisa X Slush
 
-";
 
-//        $message = str_replace("\n", "\r\n", $message);
+--
+www.elisa.com
+You received this message because somebody sent an invite to your email.
+[" . date('Y-m-d G:i:s') . "]\n";
 
-        // TODO: Sender address
-        $header = "From: Elisa X Slush <info@elisaxslush.com>\r\n";
+    //  $message = str_replace("\n", "\r\n", $message);
 
-        mail($email, $name . ' invites you to Elisa Garage Chillax on 18.11.', $message, $header);
+    $header = "From: Elisa X Slush <info@elisaxslush.com>\r\n";
+    $header .= "Content-Type: text/plain;charset=utf-8\r\n";
+
+    mail($email, $name . ' invites you to Elisa Garage Chillax on Nov 18 6-9pm', $message, $header);
 
 
-        respond(json_encode(array('status' => 'success')));
-    }
+    respond(json_encode(array('status' => 'success')));
 } else {
     respond(json_encode(array('status' => 'error', 'message' => 'Token not found or no free invites available')));
 }

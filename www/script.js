@@ -17,6 +17,8 @@ $.getJSON(config.baseUrl + 'validate.php?token=' + token, function(res) {
     console.log(res);
     if (res.status != "success") {
         $('#registerMe, #inviteFriends').remove();
+        var $letUsKnow = $('#letUsKnow').addClass('noInvite');
+        $('#header').after($letUsKnow);
         return;
         // TODO: error handling
     }
@@ -92,10 +94,12 @@ $('#registerMe form').submit(function(e) {
                 dialogMsg += "\n\n" + 'Now go ahead and invite up to ' + invite.freeInvites + ' of your friends.';
             }
             invite = $.extend(invite, fields);
+            invite.registered = true;
+
             $('#registerMe').addClass('hidden');
             $('#justRegistered').toggleClass('hidden', false);
         } else {
-            dialogMsg = 'Unfortunately there was an error. Please contact XYZ and tell us your information personally.';
+            dialogMsg = 'Unfortunately there was an error. Please contact info@elisaxslush.com and tell us your information personally.';
             // TODO: probably error logging on the backend would be pretty good idea here...
         }
         alert(dialogMsg);
@@ -105,7 +109,7 @@ $('#registerMe form').submit(function(e) {
 $('#inviteFriends form').submit(function(e) {
     e.preventDefault();
 
-    if (!invite.name) {
+    if (!invite.registered) {
         alert("You haven't registered yourself. Please register first, then invite others!");
         return;
     }
@@ -122,7 +126,8 @@ $('#inviteFriends form').submit(function(e) {
 
     $.getJSON(config.baseUrl + 'invite.php', {token: token, email: email}, function(res) {
         if (res.status == "success") {
-            alert('Your friend was invited! Make sure she checks her email ;)');
+            alert('Your friend was invited! ' + "\n" + 'Make sure she checks her email ;)');
+            $('#friendsEmail').val('');
             invite.freeInvites--;
             if (invite.freeInvites) {
                 $('#nbrOfInvites').text(invite.freeInvites);
@@ -131,11 +136,15 @@ $('#inviteFriends form').submit(function(e) {
             }
         } else {
             // TODO: handle error in inviting the user
-            alert('Unfortunately there was an error. Please contact XYZ and tell us more about what you did.');
+            alert('Unfortunately there was an error. Please contact info@elisaxslush.com and tell us more about what you did.');
         }
     });
 
 });
 
 
+$('address').click(function(e) {
+    e.preventDefault();
+    window.open('https://www.google.com/maps/place/Ratavartijankatu+5,+00520+Helsinki/@60.1987319,24.9336123,16z/data=!4m2!3m1!1s0x4692098fbac8c489:0x324a8cd1bf38a741?hl=en');
+});
 
