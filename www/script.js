@@ -15,7 +15,7 @@ var invite;
 
 $.getJSON(config.baseUrl + 'validate.php?token=' + token, function(res) {
     console.log(res);
-    if (res.status != "success") {
+    if (res.status != "success" || !token) {
         $('#registerMe, #inviteFriends').remove();
         var $letUsKnow = $('#letUsKnow').addClass('noInvite');
         $('#header').after($letUsKnow);
