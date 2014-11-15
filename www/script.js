@@ -20,7 +20,7 @@ $.getJSON(config.baseUrl + 'validate.php?token=' + token, function(res) {
         var $letUsKnow = $('#letUsKnow').addClass('noInvite');
         $('#header').after($letUsKnow);
 
-        if (window.location.search.indexOf('event_full') != -1) {
+        if (window.location.search.indexOf('event_full') != -1 || res.code === "EVENTFULL") {
             $('#letUsKnow .notification').html('Unfortunately the event is full.');
         }
 
