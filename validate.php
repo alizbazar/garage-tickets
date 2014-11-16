@@ -7,6 +7,13 @@ $count = good_query_value("SELECT COUNT(*) FROM garage_invites WHERE registered 
 
 if ($count > 315) {
 	respond(json_encode(array('status' => 'error', 'message' => 'The event is full', 'code' => 'EVENTFULL')));
+	$header = "From: Elisa X Slush <info@elisaxslush.com>\r\n";
+    $header .= "Content-Type: text/plain;charset=utf-8\r\n";
+
+    if (!file_exists('event_full')) {
+    	mail('albert.nazander@elisa.fi, hilla.pyykkonen@elisa.fi', 'GARAGE CHILLAX is FULL', "The garage party is full", $header);
+    	touch('event_full');
+    }
 }
 
 $invite = getInvite($token);
