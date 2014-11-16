@@ -41,6 +41,12 @@ $.getJSON(config.baseUrl + 'validate.php?token=' + token, function(res) {
     if (res.data.registered) {
         $('#registerMe').addClass('hidden');
         $('#justRegistered').toggleClass('hidden', false);
+        if (res.data.waitinglist == 1) {
+            $('#justRegistered .congrats').text("You've been added on the wait list. Stay tuned!");
+        }
+    } else if (res.eventIsFull) {
+        $('#registerMe .congrats').text('The event is full.');
+        $('#registerMe .subcongrats').text('However, you can register on a wait list:');
     }
 
     $('#myEmail').val(res.data.email);
@@ -98,11 +104,15 @@ $('#registerMe form').submit(function(e) {
         // TODO: fix success / error handling
         var dialogMsg;
         if (res.status == "success") {
-            dialogMsg = 'Thanks for registering!';
-            if (invite.freeInvites > 0) {
+            dialogMsg = 'Thanks for registering';
+            invite = $.extend(invite, fields);
+            if (res.waitlist) {
+                invite.waitinglist = true;
+                dialogMsg += " on the wait list";
+                $('#justRegistered .congrats').text("You've been added on the wait list. Stay tuned!");
+            } else if (invite.freeInvites > 0) {
                 dialogMsg += "\n\n" + 'Now go ahead and invite up to ' + invite.freeInvites + ' of your friends.';
             }
-            invite = $.extend(invite, fields);
             invite.registered = true;
 
             $('#registerMe').addClass('hidden');

@@ -126,7 +126,7 @@ p {
     font-size: 26px;
 }
 
-p#congrats {
+p.congrats {
     font-weight: 700;
     font-size: 30px;
 }
