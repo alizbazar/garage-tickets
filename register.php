@@ -39,6 +39,7 @@ if ($tokenValid) {
 
 if ($response['status'] == 'success') {
 
+    // Assume first name is the first word of the name
     $spaceI = strpos($name, ' ', 1);
     if ($spaceI !== FALSE) {
         $firstName = substr($name, 0, $spaceI);
@@ -67,14 +68,14 @@ PS. Should you have any questions, shoot us an email at info@elisaxslush.com .
 
 Thanks for registering for Elisa Garage Chillax that takes place on Tuesday, November 18 from 6-9pm.
 
-The venue is conveniently located within a 5-minute walk from the Slush venue, at Ratavartijankatu 5.  
+The venue is conveniently located within a 5-minute walk from the Slush venue, at Ratavartijankatu 5.
 
-The program starts and food will be ready at 6pm so please arrive in time. 
+The program starts and food will be ready at 6pm so please arrive in time.
 
 We look forward to seeing you soon!
 
 Hilla & Albert
-Team behind Elisa X Slush 
+Team behind Elisa X Slush
 
 PS. Should you have any questions, shoot us an email at info@elisaxslush.com .
 

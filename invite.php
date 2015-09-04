@@ -18,10 +18,12 @@ if ($invite && $invite['freeInvites'] > 0) {
         // Check if error is only due to duplicate email (person already invited)
         if (stripos($error, "Duplicate") !== FALSE && stripos($error, "'email'") !== FALSE) {
             $newToken = good_query_value("SELECT token FROM garage_invites WHERE email = '$email'");
+            // If the person was already invited, invite him again using his old token
             if (empty($newToken)) {
                 respond(json_encode(array('status' => 'error', 'message' => "Invitation wasn't found")));
             }
         } else {
+            // There is a minor chance that the token would already exist
             respond(json_encode(array('status' => 'error', 'message' => 'Invitation didn\'t go through. Please try again.')));
         }
     } else {
@@ -31,13 +33,13 @@ if ($invite && $invite['freeInvites'] > 0) {
         $name = $invite['name'];
         $link = 'http://elisaxslush.com/garage/?t=' . $newToken;
 
-        $message .= "Hi!\n\n" . $name . " just registered for Elisa Garage Chillax and invites you to join the fun, too.  
+        $message .= "Hi!\n\n" . $name . " just registered for Elisa Garage Chillax and invites you to join the fun, too.
 
 **Elisa Garage Chillax takes place on the first day of Slush, November 18th at 6-9pm**, in our garage (Ratavartijankatu 5, Helsinki), just a 5-minute walk from the Slush venue.
 
 Our garage space is huge but has a guest limit! So sign up with your personal link right now: " . $link . " .
 
-The program includes free food & drinks, music, dev comps, playing with facial recognition, and relaxing in big couches. 
+The program includes free food & drinks, music, dev comps, playing with facial recognition, and relaxing in big couches.
 
 For the Slush participants, the night will continue at the official Slush after party in Messukeskus.
 

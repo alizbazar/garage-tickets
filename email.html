@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mail Merge</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+    textarea {
+    	min-width: 600px;
+    	min-height: 200px;
+    }
+    .used {
+    	text-decoration: line-through;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+<h3>To -fields</h3>
+<p>Name;Email;<input type="text" id="fields" value="Token" /> Delimiter: <input type="radio" name="delimiter" value="semicomma" checked="checked" /> ; <input type="radio" name="delimiter" value="tab" /> \t </p>
+<textarea id="to">Matti Meikäläinen;matti@meikalainen.com;asdf123</textarea>
+
+<h3>Subject</h3>
+<input type="text" id="subject" value="Welcome to our party" />
+
+<h3>Message</h3>
+<p>Include tags prepending them with $</p>
+<p>$FirstName tag is generated automatically based on the first ($Name) field</p>
+<textarea id="message">Hi $FirstName!
+
+We're happy you can join our party! Here's a link for you http://elisaxslush.com/garage/?t=$Token .
+
+See you at Slush!
+
+-Al</textarea><br />
+<button id="generate">Generate</button>
+<h3>Generated emails:</h3>
+<ul id="generatedEmails"></ul>
+<br /><br />
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var pastFields = window.localStorage && localStorage.getItem('email_generator');
+    if (pastFields) {
+        pastFieldVals = JSON.parse(pastFields);
+        $('#fields').val(pastFieldVals.fieldsInput);
+        $('#message').val(pastFieldVals.message);
+        $('#subject').val(pastFieldVals.subject);
+        if (pastFieldVals.delimiterSelected == 'tab') {
+            $('input[name="delimiter"][value="tab"]').prop('checked', true);
+        }
+    }
+	$('#generate').click(function(e) {
+		var to = $('#to').val().split("\n");
+        var fieldsInput = $('#fields').val();
+		var fields = ('Name;Email;' + fieldsInput).split(";");
+		var message = $('#message').val();
+		var subject = $('#subject').val();
+        var delimiterSelected = $('input[name="delimiter"]:checked').val();
+        var delimiter = delimiterSelected == 'tab' ? "\t" : ";";
+
+        var storableFields = {
+            fieldsInput: fieldsInput,
+            message: message,
+            subject: subject,
+            delimiterSelected: delimiterSelected
+        };
+        localStorage.setItem('email_generator', JSON.stringify(storableFields));
+
+		to.forEach(function(v, i) {
+			var items = v.split(delimiter);
+            // Name and Email field names are required
+            var values = {'Name' : items[0], 'Email' : items[1]};
+            var firstNameEnding = values['Name'].indexOf(' ');
+            if (firstNameEnding == -1) {
+                values['FirstName'] = values['Name'];
+            } else {
+                values['FirstName'] = values['Name'].substring(0, firstNameEnding);
+            }
+            fields.forEach(function(fieldName, i) {
+                if (i < items.length) {
+                    values[fieldName] = items[i];
+                }
+            });
+            fields.push('FirstName');
+			var generatedMessage = message;
+			fields.forEach(function(fieldName) {
+				generatedMessage = generatedMessage.replace('$' + fieldName, values[fieldName]);
+			});
+			var link = 'mailto:' + encodeURIComponent(values['Name'] + ' <' + values['Email'] + '>') + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(generatedMessage);
+			var aHref = $('<a>').attr('href', link).text(values['Name']);
+			var li = $('<li>').append(aHref);
+			$('#generatedEmails').append(li);
+		});
+
+		window.scrollTo(0,document.body.scrollHeight);
+	});
+
+	$('#generatedEmails').on('click', 'a', function() {
+		$(this).addClass('used');
+	})
+</script>
+</body>
+</html>

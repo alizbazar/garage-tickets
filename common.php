@@ -25,7 +25,7 @@ function cors() {
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
             header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
@@ -34,6 +34,7 @@ function cors() {
     }
 }
 
+// Function used for responding with JSONP / CORS
 function respond($data) {
   global $_GET;
   header('Content-type: application/json; charset=utf-8');
@@ -46,6 +47,7 @@ function respond($data) {
   die;
 }
 
+// Log most important requests into a txt file just in case something doesn't work
 function logRequest($route, $content) {
   $content = str_replace("\n", "  ", $content);
   file_put_contents("log.txt", $route . "\t" . date('Y-m-d G:i:s') . "\t" . $content . "\n", FILE_APPEND);
@@ -54,15 +56,14 @@ function logRequest($route, $content) {
 
 
 if (strpos($_SERVER['HTTP_HOST'], 'local') === FALSE) {
+  // Connect to the database ONLINE
   require_once ('/home/vntradeo/alizweb/includes/databaseConnectLive.php');
 } else {
-  require_once ('../includes/databaseConnectLocal.php');
+  // Connect to the database LOCAL
+  require_once ('databaseConnectLocal.php');
 }
 
 $db->set_charset('utf8');
-
-//mysqli_select_db('vntradeo_vntrade');
-
 
 
 require_once ('good-query.php');
